@@ -14,7 +14,7 @@ local Window = Fluent:CreateWindow({
 
 -- Tạo tab Chức năng chính
 local Tabs = {
-    Main = Window:AddTab({ Title = "Hitbox", Icon = "crosshair" })
+    Main = Window:AddTab({ Title = "HITBOX", Icon = "crosshair" })
 }
 
 -- Biến lưu cấu hình mặc định
@@ -73,20 +73,20 @@ Tabs.Main:AddToggle("ToggleHitbox", {
     end
 })
 
--- 2. THANH CHỈNH HITBOX SIZE (Đã nâng lên MAX 500)
+-- 2. THANH CHỈNH HITBOX SIZE (Max 500)
 Tabs.Main:AddSlider("SizeSlider", {
     Title = "Hitbox Size",
     Description = "Chỉnh kích thước hitbox",
     Default = 10,
-    Min = 2,    -- Kích thước nhỏ nhất (bình thường)
-    Max = 500,  -- Siêu to khổng lồ bao phủ toàn bộ map
+    Min = 2,    
+    Max = 500,  
     Rounding = 1,
     Callback = function(Value)
         HitboxSize = Value
     end
 })
 
--- 3. Chức năng chọn độ trong suốt Hitbox Transparency
+-- 3. Chức năng chỉnh độ trong suốt Hitbox Transparency
 Tabs.Main:AddSlider("OpacitySlider", {
     Title = "Hitbox Transparency",
     Description = "Chỉnh độ mờ của hitbox",
@@ -109,17 +109,21 @@ Tabs.Main:AddColorpicker("Colorpicker", {
 })
 
 Tabs.Main:AddToggle("RGBToggle", {
-    Title = "Bật Chế Độ Hitbox 7 Màu (RGB)",
+    Title = "Bật Chế Độ hitbox 7 Màu (RGB)",
     Default = false,
     Callback = function(Value)
         RGBEnabled = Value
     end
 })
 
--- Thông báo kích hoạt thành công
 Window:SelectTab(Tabs.Main)
-Fluent:Notify({
-    Title = "TRUNG KIEN HITBOX MAX SIZE",
-    Content = "Đã mở khóa giới hạn Size 500! Kênh TikTok: trungkiendzvcl231",
-    Duration = 5
-})
+
+-- ==================== THÔNG BÁO MẶC ĐỊNH CỦA ROBLOX (MỚI THÊM) ====================
+pcall(function()
+    game:GetService("StarterGui"):SetCore("SendNotification", {
+        Title = "TRUNG KIEN HITBOX",
+        Text = "Bạn Đã Kích Hoạt Thành Công TRUNG KIEN HITBOX",
+        Icon = "rbxassetid://4483345998", -- Biểu tượng tâm ngắm chuẩn hack bá đạo
+        Duration = 6 -- Thông báo hiển thị trong 6 giây
+    })
+end)
