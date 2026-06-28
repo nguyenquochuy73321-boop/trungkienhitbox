@@ -14,7 +14,7 @@ local Window = Fluent:CreateWindow({
 
 -- Tạo tab Chức năng chính
 local Tabs = {
-    Main = Window:AddTab({ Title = "Hitbox Bá Đạo", Icon = "crosshair" })
+    Main = Window:AddTab({ Title = "Hitbox", Icon = "crosshair" })
 }
 
 -- Biến lưu cấu hình mặc định
@@ -76,7 +76,7 @@ Tabs.Main:AddToggle("ToggleHitbox", {
 -- 2. THANH CHỈNH HITBOX SIZE (Đã nâng lên MAX 500)
 Tabs.Main:AddSlider("SizeSlider", {
     Title = "Hitbox Size",
-    Description = "Chỉnh kích thước to/nhỏ của hộp Hitbox (Max 500 siêu bá đạo)",
+    Description = "Chỉnh kích thước hitbox",
     Default = 10,
     Min = 2,    -- Kích thước nhỏ nhất (bình thường)
     Max = 500,  -- Siêu to khổng lồ bao phủ toàn bộ map
@@ -89,7 +89,7 @@ Tabs.Main:AddSlider("SizeSlider", {
 -- 3. Chức năng chọn độ trong suốt Hitbox Transparency
 Tabs.Main:AddSlider("OpacitySlider", {
     Title = "Hitbox Transparency",
-    Description = "Chỉnh độ mờ của hộp Hitbox (0 là đậm đặc, 1 là tàng hình)",
+    Description = "Chỉnh độ mờ của hitbox",
     Default = 0.5,
     Min = 0,
     Max = 1,
@@ -109,7 +109,7 @@ Tabs.Main:AddColorpicker("Colorpicker", {
 })
 
 Tabs.Main:AddToggle("RGBToggle", {
-    Title = "Bật Chế Độ 7 Màu (RGB)",
+    Title = "Bật Chế Độ Hitbox 7 Màu (RGB)",
     Default = false,
     Callback = function(Value)
         RGBEnabled = Value
